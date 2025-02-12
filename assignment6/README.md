@@ -1,1 +1,1 @@
-These are different ways in order to test access modifiers.  
+These are different ways in order to test access modifiers. 
