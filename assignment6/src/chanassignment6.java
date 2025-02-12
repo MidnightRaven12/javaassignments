@@ -66,6 +66,6 @@ public class chanassignment6 {
         Zebra Marty = new Zebra(12, "male");
         Marty.run();
         Zebra.staticRun();
-
+        mainStaticRun();
     }
 }
