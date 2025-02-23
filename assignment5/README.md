@@ -1,18 +1,5 @@
-## Getting Started
+# Matrix Multiplier
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This multiplies matrices. Let's say that we have matrices A, and B in a textfile known as a.txt, and b.txt. Then, we have: AB = C, and outputs matrix3.txt. See: usage by running 
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+`java -jar --enable-preview chanassignment5.jar` without any other arguments. 
