@@ -1,0 +1,3 @@
+Alternatively,  you can just use Binet's Formula in order to get an easy win, and work in the ring of integers adjoined with the square root of 5 and implement the field in Java. In other words: [this](https://en.wikipedia.org/wiki/Quadratic_integer).  This is very overkill, and we won't be implementing it here. 
+
+There is a [video](https://www.youtube.com/watch?v=KzT9I1d-LlQ) that describes the theoretical limit of generating Fibonacci Numbers in C and C++, trying to stretch the limits of the C compiler. In fact, you can get very far with this. 
