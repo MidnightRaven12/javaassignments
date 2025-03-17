@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 class assignment9 {
 	// Creating a Random Array
@@ -9,8 +12,35 @@ class assignment9 {
 		return outputArray;
 	}
 
-	
-		
+	// File Things:
+
+	public static void createFile(String fileName) {
+		try {
+			File file = new File(fileName);
+			if (file.createNewFile()) {
+				System.out.println("File created: " + file.getName());
+			} else {
+				System.out.println("File exists.");
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	public static void writeToFile(String fileName, int[] array) {
+		try {
+			FileWriter file = new FileWriter(fileName);
+			for (int i = 0; i < array.length; i++) {
+				file.write(array[i] + "\n");
+			}
+			file.close();
+		}
+		catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+    // Merge Sort
 	public static void merge(int[] array, int left, int middle, int right, int descending) {
 		//Initializing the Left and Right arrays:
 		int leftArraySize = middle-left+1;
@@ -61,10 +91,12 @@ class assignment9 {
 		}
 	}
 	
+
+	// Bubble Sort
 	public static int[] bubbleSort(int[] array, int descending) {
 		int length = array.length; // So that we don't have to refer to array.length all of the time.
 		int[] outputArray = new int[length];
-		for (int i = 0; i < length - 1; i++) {
+		for (int i = 0; i < length; i++) {
 			outputArray[i] = array[i];
 		}
 		int tmp;
@@ -74,29 +106,39 @@ class assignment9 {
 					tmp = outputArray[j];
 					outputArray[j] = outputArray[j+1];
 					outputArray[j+1] = tmp;
-				}
+				}				
 			}
 		}
 		return outputArray;
 	}
 	public static void main(String[] args) {
-		if (args.length != 3) {
-			System.out.println("Usage: java -jar <length> <range> <descending, 0 or 1>");
+		if (args.length != 6) {
+			System.out.println("Usage: java -jar <length> <range> <descending, 0 or 1> <unsorted output> <bubble sorted file> <merge sorted file> ");
 		} else {
 			int length = Integer.parseInt(args[0]);
 			int range = Integer.parseInt(args[1]); 
 			int descending = Integer.parseInt(args[2]);
+			String unsortedFileName = args[3];
+			String bubbleSortedFileName = args[4];
+			String mergeSortedFileName = args[5];
+			createFile(unsortedFileName);
+			createFile(bubbleSortedFileName);
+			createFile(mergeSortedFileName);
 			int[] array = createRandomArray(length, range);
+		
+            writeToFile(unsortedFileName, array);
             long startBubbleSortTime = System.nanoTime();
-			bubbleSort(array, descending);
+			int[] bubbleArray = bubbleSort(array, descending);
 			long endBubbleSortTime = System.nanoTime();
 			long elapsedBubbleSortTime = endBubbleSortTime - startBubbleSortTime;
+			writeToFile(bubbleSortedFileName, bubbleArray);
 			System.out.println("The time it takes for Bubble Sort to Occur is: " + elapsedBubbleSortTime + " ns");
 			long startMergeSortTime = System.nanoTime();
 			mergeSort(array, 0, length-1, descending);
 			long endMergeSortTime = System.nanoTime();
 			long elapsedMergeSortTime = endMergeSortTime - startMergeSortTime;
 			System.out.println("The time it takes for Merge Sort to Occur is: " + elapsedMergeSortTime + " ns");
+			writeToFile(mergeSortedFileName, array);
 		}
 	}
 }
