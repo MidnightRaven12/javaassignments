@@ -1,0 +1,1 @@
+We just sort and compare between Bubble Sort, and Merge Sort. 
