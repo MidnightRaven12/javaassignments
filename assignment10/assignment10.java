@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 // This is an example class so that people don't use Strings as the example class. 
+
 class Car implements Comparable<Car>{
     private String model;
     private int year;
@@ -42,16 +43,8 @@ class Car implements Comparable<Car>{
 }
 
 class assignment10 {
-    public static String generateRandomString(int length) {
-            String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            String returnedString = "";
-
-            for (int i = 0; i < length; i++) {
-                int randomIndex = (int) (Math.random()*(characters.length()));
-                returnedString += characters.charAt(randomIndex);
-            }
-            return returnedString;
-        }
+	
+    
     // File things stay the same as before; nothing new.
 	public static void createFile(String fileName) {
 		try {
@@ -78,6 +71,10 @@ class assignment10 {
 			e.printStackTrace();
 		}
 	}
+
+	// Initialization of sorting arrays:
+
+	
 	public static Car[] createRandomArray(int arrayLength, int stringLength) { 
 		Car[] outputArray = new Car[arrayLength];
         LocalDate today = LocalDate.now();
@@ -92,7 +89,26 @@ class assignment10 {
         }
 		return outputArray;
 	}	
-		
+	public static String generateRandomString(int length) {
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		String returnedString = "";
+
+		for (int i = 0; i < length; i++) {
+			int randomIndex = (int) (Math.random()*(characters.length()));
+			returnedString += characters.charAt(randomIndex);
+		}
+		return returnedString;
+	}
+	
+	/*
+		__________     ___.  ___.   .__             _________              __   
+		\______   \__ _\_ |__\_ |__ |  |   ____    /   _____/ ____________/  |_ 
+		 |    |  _/  |  \ __ \| __ \|  | _/ __ \   \_____  \ /  _ \_  __ \   __\
+		 |    |   \  |  / \_\ \ \_\ \  |_\  ___/   /        (  <_> )  | \/|  |  
+		 |______  /____/|___  /___  /____/\___  > /_______  /\____/|__|   |__|  
+		        \/          \/    \/          \/          \/                    
+	 */
+
 	public static <T extends Comparable<T>> T[] bubbleSort(T[] array, int descending) {
 		int length = array.length; // So that we don't have to refer to array.length all of the time.
 		T tmp;
@@ -110,7 +126,15 @@ class assignment10 {
 		}
 		return array;
 	}
-	// Merge Sort
+
+	/*
+		  /     \   ___________  ____   ____     __________________/  |_ 
+		 /  \ /  \_/ __ \_  __ \/ ___\_/ __ \   /  ___/  _ \_  __ \   __\
+		/    Y    \  ___/|  | \/ /_/  >  ___/   \___ (  <_> )  | \/|  |  
+		\____|__  /\___  >__|  \___  / \___  > /____  >____/|__|   |__|  
+		        \/     \/     /_____/      \/       \/                   
+	 */
+
 	public static <T extends Comparable<T>> void merge(T[] array, int left, int middle, int right, int descending) {
 		//Initializing the Left and Right arrays:
 		int leftArraySize = middle-left+1;
@@ -125,11 +149,10 @@ class assignment10 {
 		}
 		int leftIndex = 0; 
 		int rightIndex = 0;
-		int origin = left; // Makes the code more readable
-		
+		int origin = left; // Makes the code more readable		
 		int offset = 0;
 		while (leftIndex < leftArraySize && rightIndex < rightArraySize) {
-			if (Math.pow(-1,descending)*Left[leftIndex].compareTo(Right[rightIndex]) <= 0) { // Again, the -1 trick allows us to implement descending in the same line of code. 
+			if (Math.pow(-1,descending)*Left[leftIndex].compareTo(Right[rightIndex]) >= 0) { // Again, the -1 trick allows us to implement descending in the same line of code. 
 				array[origin + offset] = Right[rightIndex];
 				rightIndex++;
 			} else {
@@ -151,8 +174,8 @@ class assignment10 {
 			array[origin + offset] = Right[rightIndex];
 			rightIndex++;
 		}
-		 // return array;
 	}
+	// The actual Merge Sort. 
 	public static <T extends Comparable<T>> T[] mergeSort(T[] array, int left, int right, int descending) {
 		if (left < right) {
 			int middleBound = (left + right)/2;
@@ -163,23 +186,36 @@ class assignment10 {
 		return array;
 	}
 	public static void helpFunction() { // If you're pedantic enough...you can put all of this in a separate .txt or .md file in order to read out. 
-		System.out.println("Please use in the following way:");
-		System.out.println("java -jar assignment7.jar <arrayLength> <range> -o <Output> <descending, 0 or 1>");
-		System.out.println("Alternatively, you can use it this way:");
-		System.out.println("java -jar assignment7.jar <readFile> -o <Output> <descending, 0 or 1>");
-		System.out.println("For example, 'java -jar assignment7.jar array.txt -o output.txt 0' sorts the numbers in array.txt into output.txt in ascending order.");
+		System.out.println("Usage: java -jar assignment10.jar <lengthOfArray> <lengthOfRandomStrings> <descending, 0 or 1> <unsorted output> <bubble sorted file> <merge sorted file> ");
 	}
 	public static void main(String[] args){
-		if (args.length <= 3 || args.length >= 6) {
+		if (args.length != 6) {
 			helpFunction();
 		} else {
-				int arrayLength, range;
-				arrayLength = Integer.parseInt(args[0]);
-				range = Integer.parseInt(args[1]);
-				int descending = Integer.parseInt(args[4]);
-				Car[] array = createRandomArray(arrayLength, range);
-				Car[] output = (Car[]) mergeSort(array, 0, arrayLength - 1, descending);
-			    writeToFile(args[3], output);
+				int arrayLength = Integer.parseInt(args[0]);
+				int stringLength = Integer.parseInt(args[1]);
+				int descending = Integer.parseInt(args[2]);
+				String unsortedFileName = args[3];
+				String bubbleSortedFileName = args[4];
+				String mergeSortedFileName = args[5];
+				createFile(unsortedFileName);
+				createFile(bubbleSortedFileName);
+				createFile(mergeSortedFileName);
+				Car[] array = createRandomArray(arrayLength, stringLength);
+				writeToFile(unsortedFileName, array); // Hey, did you know that if you write in camelCase, you can have the variables (say one is named camelCaseVariable), you can type "cCV", and it will load it in VSCode as a variable name that you can type out! 
+				
+        		long startBubbleSortTime = System.nanoTime();
+				Car[] bubbleArray = bubbleSort(array, descending);
+				long endBubbleSortTime = System.nanoTime();
+				long elapsedBubbleSortTime = endBubbleSortTime - startBubbleSortTime;
+				System.out.println("The time it takes for Bubble Sort to Occur is: " + elapsedBubbleSortTime + " ns");
+				writeToFile(bubbleSortedFileName, bubbleArray);
+				long startMergeSortTime = System.nanoTime();
+				Car[] mergeSortOutput = (Car[]) mergeSort(array, 0, arrayLength - 1, descending);
+				long endMergeSortTime = System.nanoTime();
+				long elapsedMergeSortTime = endMergeSortTime - startMergeSortTime;
+				System.out.println("The time it takes for Merge Sort to Occur is: " + elapsedMergeSortTime + " ns");
+				writeToFile(mergeSortedFileName, mergeSortOutput);
 		}	
 	}
 
