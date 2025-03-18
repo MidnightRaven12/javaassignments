@@ -113,7 +113,7 @@ class assignment9 {
 	}
 	public static void main(String[] args) {
 		if (args.length != 6) {
-			System.out.println("Usage: java -jar <length> <range> <descending, 0 or 1> <unsorted output> <bubble sorted file> <merge sorted file> ");
+			System.out.println("Usage: java -jar assignment9.jar <length> <range> <descending, 0 or 1> <unsorted output> <bubble sorted file> <merge sorted file> ");
 		} else {
 			int length = Integer.parseInt(args[0]);
 			int range = Integer.parseInt(args[1]); 
