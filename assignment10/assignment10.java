@@ -34,7 +34,7 @@ class Car implements Comparable<Car>{
     public int compareTo(Car car) {
         String str1= this.owner;
         String str2 = car.owner;
-        return str1.compareTo(str2);
+        return str1.compareTo(str2); // Also, note that compareTo compares the ASCII Values, basically saying that 0 goes before A, which goes before a. 
     }
     @Override
     public String toString() {
@@ -179,8 +179,11 @@ class assignment10 {
 	public static <T extends Comparable<T>> T[] mergeSort(T[] array, int left, int right, int descending) {
 		if (left < right) {
 			int middleBound = (left + right)/2;
+
+			// Gives two already sorted algorithms; take note that merge only gives a sorted array, when the two subarrays are themselves sorted. 
 			mergeSort(array, left, middleBound, descending);
 			mergeSort(array, middleBound+1, right, descending);
+
 			merge(array, left, middleBound, right, descending);
 		}
 		return array;
@@ -189,7 +192,7 @@ class assignment10 {
 		System.out.println("Usage: java -jar assignment10.jar <lengthOfArray> <lengthOfRandomStrings> <descending, 0 or 1> <unsorted output> <bubble sorted file> <merge sorted file> ");
 	}
 	public static void main(String[] args){
-		if (args.length != 6) {
+		if (args.length != 6) { 
 			helpFunction();
 		} else {
 				int arrayLength = Integer.parseInt(args[0]);
