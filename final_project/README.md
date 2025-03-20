@@ -14,10 +14,10 @@ I'm also planning to use this as a CTF. Naturally, there is going to be a hidden
 
 1. It will have a save feature, that will use a hashing function in order to prevent tampering of the game. (of course, since the code is open source, and anyone can modify it, this point is useless to bring up.)
 
-2. Spoiler Alert, it will have something to do with the HASHING function and how to reverse engineer it to give you what it wants. Then, you will be able to run whatever code that you want.
+2. Spoiler Alert, it will have something to do with the hashing function and how to reverse engineer it to give you what it wants. Then, you will be able to run whatever code that you want.
 
 3. We will also have a database in order to race your friends to 2000 clicks, using some more Java in order for people to host their own LAN games. 
 
 # Summary
 
-Basically, a netowork component, as well as a front end component, with a little CTF flavor added to it. 
+Basically, a network component, as well as a front end component, with a little CTF flavor added to it. 
