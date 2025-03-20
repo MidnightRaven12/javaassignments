@@ -1,0 +1,67 @@
+classDiagram
+    %% Base player attributes.
+    class gameState {
+        -score: int
+        -clicks: int 
+        -winningScore: int
+        -level: int
+        -playing: int
+        -singlePlayer: bool
+        +getGameState(void): void        
+    }
+    class Server {
+        -host: String
+        -port: int
+        -clients: List<Player>
+        -running: boolean
+        +start(void): int
+        +stop(void): int
+        +listClients(void): List<Player>
+        +addClients(Player player):
+    } 
+    %% getGameState is for debugging
+    class Player  {
+        -ip: Stri
+        +getCursors(void): int
+        +modifyCursors(int value): int
+        +getscore(void): int
+        +modifyScore(int value): int
+        +connect(string: Hostname): int
+    }
+
+    %% We just need a list of attributes, since java does not support arbitrary arrays...
+    class stageObjects { 
+        -width: double
+        -height: double
+        -xposition: double
+        -yposition: double
+        -xvelocity: double
+        -yvelocity: double
+        +value: int 
+        +getAttributes(void): int
+    }
+    %% The getAttributes methods is for debugging, as it is just a System.out.println statement, as well as allows for certain error codes to happen (with return int)  
+    class Button {
+        -valueWhenClicked: int
+        +clickedButton(void): int
+    }
+    %% more specifically, we might need a method that actually tells each individual class what to do when their object is clicked. Note that clicked action is an integer, in order to debug even further. This is a trick dating back to the olden days of C, in which different return codes gives you the different errors that would happen. 
+    stageObjects <|-- "1.."Button: is a 
+
+    class cursors {
+        -valueWhenClicked: int
+        +clickedCursor(void): int
+    }
+    stageObjects <|-- cursors: is a 
+    class Obstacle {
+        +clickedObstacle(void): int 
+    }
+    stageObjects <|-- Obstacle: is a 
+    class configFiles {
+        -hash: String
+        +getHash(void): String
+        +parseHash(void): int
+    }
+    configFiles "0..1" --> "1" Player 
+    %% You probably might not even need getHash anyways, since all you probably need to do is to simply parse it. But, of course, debug purposes (also, you may never know what in the future the hash is going to be used for.) A database to login, perhaps, with usernames, and passwords locked in a database ran by some other language? 
+
