@@ -117,7 +117,7 @@ class assignment13 {
         for (int i = 0; i < resultingArray.length; i++) {
             if (!tmp.equals(resultingArray[i])) {
 				if (!tmp.isEmpty()) {
-					System.out.printf("The word count for %s is %d \n", tmp, count);
+					System.out.printf("The word count for '%s' is %d \n", tmp, count);
 				}
                 tmp = resultingArray[i];
                 count = 1;
