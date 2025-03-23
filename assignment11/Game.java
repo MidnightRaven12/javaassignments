@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.InputMismatchException;
 
+interface secret {
+    int secret = 1434;
+}
 
-public class Game {
+public class Game implements secret {
     public int money;
     public double suspicion; 
     public int apples;
@@ -116,39 +119,37 @@ public class Game {
         }        
     }
 
-    public void Farming() {
-        System.out.println("Farming...");
-    }
-
     public void Buying() {
         System.out.println("Buying...");
     }
 
+    public void secret() {
+        
+    }
     public void loop(List<customer> customers) {
         while (true) {
             
             System.out.println("Choose an action:");
             System.out.println("(1) Interact with Customer");
-            System.out.println("(2) Farming");
-            System.out.println("(3) Buying");
-            System.out.println("(4) New Day");
-            System.out.println("(5) See Stats");
+            System.out.println("(2) Buying");
+            System.out.println("(3) New Day");
+            System.out.println("(4) See Stats");
             
             int choice = this.scanner.nextInt();
             
             if (choice == 1) {
                 this.InteractWithCustomer();
             } else if (choice == 2) {
-                this.Farming();
-            } else if (choice == 3) {
                 this.Buying();
-            } else if (choice == 4)  {
+            } else if (choice == 3) {
                 System.out.println("Moving on to the next day: ");
                 this.day++;
                 break;
-            } else if (choice == 5) {
+            } else if (choice == 4)  {
                 System.out.println(this.toString());
-            }   else {
+            } else if (choice == secret) {
+                this.secret();
+            } else {
                 System.out.println("Invalid choice. Please enter a number between 1-4.");
             }
         }
@@ -165,14 +166,7 @@ public class Game {
         for (int i = 0; i < noCustomers; i++) {
             this.customerList.add(customer.generateRandomCustomer());
         }
-        System.out.println("Pick a random number between 0 and 100");
-        
-        double newDouble = this.scanner.nextDouble();
-        if (newDouble >= 0 && newDouble <= this.suspicion) {
-            // Implement suspicious behavior, meaning that you will now be searched, if you choose the right dialogue options. 
-        } else {
-            loop(this.customerList);
-        }
+        loop(this.customerList);
     }
 }
 
