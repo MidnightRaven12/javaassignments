@@ -105,7 +105,6 @@ public class assignment7 {
 			} else {
 				helpFunction();
 			}
-			
 		}	
 	}
 
