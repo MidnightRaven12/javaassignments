@@ -6,6 +6,6 @@ Hey, why am I stuck here?
 Hey! I'm also here!
 Hey there! Who are you!
 
-Hey! I'm Alice, and you are Bob, right.
+Hey! I'm "Alice", and you are Bob, right.
 
 Hey! That's my name!
