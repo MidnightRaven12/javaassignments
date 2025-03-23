@@ -43,7 +43,7 @@ public class customer implements Events {
         this.carrotsWanted =  1;
         this.datesWanted =  1;
     }
-    public static customer generateRandomCustomer() {
+    public static customer generateRandomCustomer() { // Add some more things later, dealing with game progression. 
         Random random = new Random();
         int purchasing = random.nextInt(100) + 1; // Something
 
@@ -72,6 +72,11 @@ public class customer implements Events {
     }
     public int negotiate(Game game) {
         Scanner scanner = game.scanner;
+        if (!(game.apples >= applesWanted && game.bananas >= bananasWanted && game.carrots >= carrotsWanted && game.dates >= datesWanted)) {
+            System.out.println("Sorry, you cannot sell this. You must turn them away.");
+            System.out.println();
+            return 2; // Not sold
+        }
         while (true) {
             System.out.println("What is your asking price?");
             System.out.print("Input your asking price: ");
@@ -81,10 +86,57 @@ public class customer implements Events {
                 System.out.println("Thanks!");
                 buy(game);
             } else {
-                Random random = new Random();
-                double patienceLoss = 100*random.nextDouble();
-                double 
-
+                while (this.patience >= 0) {
+                    Random random = new Random();
+                    double patienceLoss = 100*random.nextDouble();
+                    double amount = (price - this.purchasing)*random.nextDouble();
+                    this.patience -= patienceLoss;
+                    if (this.patience < 0) {
+                        System.out.println("No deal. I'm done dealing with you.");
+                        while (true) {
+                            System.out.println("Make your decision:");
+                            System.out.println("(1) Accept");
+                            System.out.println("(2) Dismiss");
+                            try {
+                                int choice = scanner.nextInt();
+                                if (choice < 1 || choice > 2) {
+                                    System.out.println("Invalid input. Please choose again.")
+                                } else if (choice == 1){
+                                    return buy(game);
+                                } else {
+                                    return dismiss(game);
+                                }
+                            }
+                            catch (InputMismatchException e) {
+                                // Handle invalid input (not an integer)
+                                System.out.println("Invalid input! Please enter a valid integer.");
+                                scanner.nextLine();  // Clear the invalid input from the scanner buffer
+                            }
+                        }
+                    } else {
+                        this.purchasing += amount;
+                        while (true) {
+                            System.out.println("Okay, I'm willing to give you " + this.purchasing ". Make your decision");
+                            System.out.println("(1) Accept");
+                            System.out.println("(2) Negotiate");
+                            try { 
+                                int choice = scanner.nextInt();
+                                if (choice < 1 || choice > 2) {
+                                    System.out.println("Invalid input. Please choose again.")
+                                } else if (choice == 1){
+                                    return buy(game);
+                                } else {
+                                    break;
+                                }
+                            catch (InputMismatchException e) {
+                                // Handle invalid input (not an integer)
+                                System.out.println("Invalid input! Please enter a valid integer.");
+                                scanner.nextLine();  // Clear the invalid input from the scanner buffer
+                            }
+                        }
+                    }
+                }
+                
             }
         }
     }
@@ -106,11 +158,10 @@ public class customer implements Events {
             System.out.println("(4) See Stats");
             System.out.println("(5) Back");
             try {
-                int decision = scanner.nextInt();  // Attempt to read the user's input
-                // Check if the input is within the valid range
+                int decision = scanner.nextInt();  
                 if (decision < 1 || decision > 5) {
                     System.out.println("You have chosen an invalid input.");
-                    System.out.println();  // Blank line for separation
+                    System.out.println();  
                 } else {
                     if (decision == 1) {
                         return this.negotiate(game);
