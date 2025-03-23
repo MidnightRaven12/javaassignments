@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 class assignment12 {
 
-    // With VS Code, you can use custom snippets (as well as vim.) Hence, we have put this as a way of writing a template.
-
     public static List<String> ls(String filterName) { 
         List<String> fileList = new ArrayList<>();
         File directory = new File(filterName);
@@ -101,6 +99,8 @@ class assignment12 {
         System.out.println("Example: java -jar assignment12.jar Pa$$word123 demo 3 8 16");
         System.out.println("Will use the directory named \"demo\" for the filters that will be applied");
     }
+
+    // With VS Code, you can use custom snippets (as well as vim.) Hence, we have put this as a way of writing a template.
 
     final static int minArgsLength = 5;
     final static int maxArgsLength = 5;
