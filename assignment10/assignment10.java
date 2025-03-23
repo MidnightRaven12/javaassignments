@@ -173,6 +173,7 @@ class assignment10 {
 		while (rightIndex < rightArraySize) {
 			array[origin + offset] = Right[rightIndex];
 			rightIndex++;
+			offset++;
 		}
 	}
 	// The actual Merge Sort. 
