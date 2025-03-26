@@ -7,7 +7,7 @@ class Main {
     final static private int minNoLength = 0; // Satisfies requirements.
     final static private int maxNoLength = 1;
 
-    static void tour() {
+    protected static void tour() {
         tour1.tourOne();
         sleep.sleepTime(1000);
         tour2.tourTwo();
