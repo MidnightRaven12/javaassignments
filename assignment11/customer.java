@@ -138,18 +138,19 @@ public class Customer implements Events {
             }
         }
     }
-
+    private int dismiss() {
+        System.out.println("Dismissing the customer:");
+        return 3; // Code for dismiss.
+    }
+    @Override
     public void overloading() {
         System.out.println("Overloading!");
     }
+    @Override
     public void overloading(int iterations) {
         for (int i = 0; i < iterations; i++) {
             System.out.println("This is the " + (i+1) + "th iteration.");           
         }
-    }
-    private int dismiss() {
-        System.out.println("Dismissing the customer:");
-        return 3; // Code for dismiss.
     }
     @Override
     public int screen(Game game) {

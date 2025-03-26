@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
 interface secretInterface {
     public void secret(Game game);
     public int SECRET = 1434;
@@ -48,9 +47,9 @@ public class Game implements secretInterface {
     }
     public void start() {
         System.out.println("Welcome to running a suspicious fruit stand. You are an outlaw fruit seller, selling apples, bananas, carrots, and dates, all outlawed by your land. Your goal is to grow your empire.");
-        this.sleep(5000); 
+        this.sleepTime(5000); 
         System.out.println("Here's what you start with: \n" + this.toString());
-        this.sleep(5000); 
+        this.sleepTime(5000); 
         System.out.println("Get ready.");
         for (int i = 0; i < 10; i++) {
             day();
@@ -59,10 +58,10 @@ public class Game implements secretInterface {
     }
     public void end(int gameEndingCode) {
         this.scanner.close();
-        System.out.printf("You scored a %.2f!", (double) money / 100.0);
+        System.out.printf("You scored a %.2f!", (double) this.money / this.winningMoney);
     }
     // Yeah, turns out you need an exception. 
-    private void sleep(int time) {
+    private void sleepTime(int time) { // Note that this satisfies requirements. 
         try {
             Thread.sleep(time);          
         } catch (InterruptedException e) {
@@ -108,7 +107,7 @@ public class Game implements secretInterface {
         }        
     }
 
-    public void Buying(Shop shop, Game game) {
+    public void buying(Shop shop, Game game) {
         shop.screen(game);
     }
     @Override
@@ -131,7 +130,7 @@ public class Game implements secretInterface {
                 if (choice == 1) {
                     this.interactWithCustomer();
                 } else if (choice == 2) {
-                    this.Buying(shop, this);
+                    this.buying(shop, this);
                 } else if (choice == 3) {
                     System.out.println("Moving on to the next day: ");
                     this.day++;
@@ -151,15 +150,23 @@ public class Game implements secretInterface {
             
         }
     }
-
+    // Here to satisfy requirements.
+    public void overloading() {
+        System.out.println("Overloading!");
+    }
+    public void overloading(int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            System.out.println("This is the " + (i+1) + "th iteration.");           
+        }
+    }
     public void day() { // this will implement the new day logic.
         for (int i = 0; i < this.customerList.size(); i++) {
             customerList.remove(i);
         }
         Shop shop = Shop.generateRandomShop();
-        this.sleep(1000); 
+        this.sleepTime(1000); 
         System.out.println("Day " + this.day);
-        this.sleep(1000); 
+        this.sleepTime(1000); 
         int noCustomers = 3;
         for (int i = 0; i < noCustomers; i++) {
             this.customerList.add(Customer.generateRandomCustomer());
