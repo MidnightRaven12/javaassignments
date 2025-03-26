@@ -1,18 +1,16 @@
-import java.util.Scanner;
-import java.util.Random; 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.InputMismatchException;
+import java.util.Random;
+import java.util.Scanner;
 
-public class customer implements Events {
+public class Customer implements Events {
     protected int purchasing;
     protected double patience;
-    private int applesWanted;
-    private int bananasWanted;
-    private int carrotsWanted;
-    private int datesWanted;
+    final private int applesWanted;
+    final private int bananasWanted;
+    final private int carrotsWanted;
+    final private int datesWanted;
     
-    public customer(int purchasing, double patience, int applesWanted, int bananasWanted, int carrotsWanted, int datesWanted) {
+    public Customer(int purchasing, double patience, int applesWanted, int bananasWanted, int carrotsWanted, int datesWanted) {
         this.purchasing =  purchasing;
         this.patience =  patience;
         this.applesWanted =  applesWanted;
@@ -35,7 +33,7 @@ public class customer implements Events {
             return 2; // Not sold
         }
     }
-    public customer() { // Generic customer, for debugging. 
+    public Customer() { // Generic customer, for debugging. 
         this.purchasing = 30;
         this.patience =  50;
         this.applesWanted =  1;
@@ -43,7 +41,7 @@ public class customer implements Events {
         this.carrotsWanted =  1;
         this.datesWanted =  1;
     }
-    public static customer generateRandomCustomer() { // Add some more things later, dealing with game progression. 
+    public static Customer generateRandomCustomer() { // Add some more things later, dealing with game progression. 
         Random random = new Random();
         int purchasing = random.nextInt(100) + 1; // Something
 
@@ -56,7 +54,7 @@ public class customer implements Events {
         int datesWanted = random.nextInt(10);   // Random number of dates wanted (0-9)
 
         // Create and return a new customer with random values
-        return new customer(purchasing, patience, applesWanted, bananasWanted, carrotsWanted, datesWanted);
+        return new Customer(purchasing, patience, applesWanted, bananasWanted, carrotsWanted, datesWanted);
     }
     public void asking() {
         System.out.println("Hello, I would like " + this.applesWanted + " apples, " + this.bananasWanted + " bananas, " + this.carrotsWanted + " carrots, and " + this.datesWanted + " dates for "  + this.purchasing + " please");
@@ -100,11 +98,11 @@ public class customer implements Events {
                             try {
                                 int choice = scanner.nextInt();
                                 if (choice < 1 || choice > 2) {
-                                    System.out.println("Invalid input. Please choose again.")
+                                    System.out.println("Invalid input. Please choose again.");
                                 } else if (choice == 1){
                                     return buy(game);
                                 } else {
-                                    return dismiss(game);
+                                    return dismiss();
                                 }
                             }
                             catch (InputMismatchException e) {
@@ -116,19 +114,19 @@ public class customer implements Events {
                     } else {
                         this.purchasing += amount;
                         while (true) {
-                            System.out.println("Okay, I'm willing to give you " + this.purchasing ". Make your decision");
+                            System.out.println("Okay, I'm willing to give you " + this.purchasing + ". Make your decision");
                             System.out.println("(1) Accept");
                             System.out.println("(2) Negotiate");
                             try { 
                                 int choice = scanner.nextInt();
                                 if (choice < 1 || choice > 2) {
-                                    System.out.println("Invalid input. Please choose again.")
+                                    System.out.println("Invalid input. Please choose again.");
                                 } else if (choice == 1){
                                     return buy(game);
                                 } else {
                                     break;
                                 }
-                            catch (InputMismatchException e) {
+                            } catch (InputMismatchException e) {
                                 // Handle invalid input (not an integer)
                                 System.out.println("Invalid input! Please enter a valid integer.");
                                 scanner.nextLine();  // Clear the invalid input from the scanner buffer
@@ -141,7 +139,14 @@ public class customer implements Events {
         }
     }
 
-
+    public void overloading() {
+        System.out.println("Overloading!");
+    }
+    public void overloading(int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            System.out.println("This is the " + (i+1) + "th iteration.");           
+        }
+    }
     private int dismiss() {
         System.out.println("Dismissing the customer:");
         return 3; // Code for dismiss.
