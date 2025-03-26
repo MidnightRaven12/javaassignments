@@ -1,0 +1,241 @@
+classDiagram
+    class Main { 
+      ~ Main(): <<create>>
+      ~ Main(dummy: int): <<create>> 
+      - minNoLength: int
+      - maxNoLength: int
+      # tour(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+    }
+    class Customer {
+     + Customer(purchasing: int, patience: double, applesWanted: int, bananasWanted: int, carrotsWanted: int, datesWanted: int): <<create>>
+     + Customer(): <<create>>
+     # purchasing: int
+     # patience: double
+     - applesWanted: int
+     - bananasWanted: int
+     - carrotsWanted: int
+     - datesWanted: int
+     + buy(game: Game): int
+     + generateRandomCustomer(): Customer
+     + asking(): void
+     + asking(nice: boolean): void
+     + negotiate(game: Game): int
+     + dismiss(): int
+     + screen(game: Game): int 
+    }
+    Events <|.. Customer: implements
+
+    class secretInterface {
+      + SECRET: int
+      + secret(game: Game): void
+    }
+    class Game {
+      + Game(): <<create>>
+      + Game(money: int, apples: int, bananas: int, carrots: int, dates: int, winningMoney: int, scanner: Scanner, day: int, armed: boolean): <<create>>
+      + money: int
+      + apples: int
+      + bananas: int
+      + carrots: int
+      + dates: int
+      + scanner: Scanner
+      # winningMoney: int
+      + day: int
+      + customerList: List<Customer>
+      + toString(): String
+      + getGameState(): void
+      + start(): void
+      + end(gameEndingCode: int): void
+      - sleepTime(time: int): void
+      + interactWithCustomer(): int
+      + buying(shop: Shop, game: Game): void
+      + secret(game: Game): void
+      + loop(customers: List<Customer>, shop: Shop)
+      + overloading(): void
+      + overloading(iterations: int): void
+      + day(): void
+    }
+    secretInterface <|.. Game: implements
+    class Events {
+      + dummy_variable: int
+      + dummy_variable2: int
+      + screen(game: Game): int
+      + overloading(): void
+      + overloading(iterations: int): void
+    }
+    class Shop {
+      + Shop(appleStock: int, bananaStock: int, carrotStock: int, dateStock: int): <<create>>
+      + Shop(): <<create>>
+      - applePrice: double
+      - bananaPrice: double 
+      - carrotPrice: double 
+      - datePrice: double
+      - stock: int[4]
+      - order: int[4]
+      # dummy_variable: int
+      + generateRandomShop(): Shop
+      + updateStock(apples: int, bananas: int, carrots: int, dates: int): void
+      + indexToFruits(choice: int): String
+      + calculateTotalPrice(): double
+      + seeStockAndOrder(): void
+      + checkout(game: Game): int
+      + screen(game: Game): int
+      + overloading(): void
+      + overloading(iterations: int): void
+    }
+    Events <|.. Shop: implements
+    class Human {
+      ~ Human(name: String, age: int): <<create>>
+      ~ Human(): <<create>>
+      # name: String
+      # age: int
+      + speak(): void
+      + dummyMethod(): void
+      ~ introduce(): void
+      + work(): void
+      ~ greet(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+    }
+    class Staff {
+      ~ Staff(name: String, age: int, typeOfZoo: String): <<create>>
+      ~ Staff(): <<create>>
+      ~ typeOfZoo: String
+      # dummy_variable: int
+      - dummy_variable2: int
+      + overloading(): void
+      + overloading(iterations: int): void
+      + dummyInterfaceMethod(): void
+    }
+    Human <|-- Staff
+    class Animal {
+        + Animal(animalAge: int, animalGender: String, mammal: boolean): <<create>>
+        + Animal()
+        + age: int
+        + gender: String
+        + mammal: boolean
+        + isMammal(): void
+        # Call(): void
+        - animals(): void
+        + publicanimals(): void
+        + introduce(): void
+        + overloading(): void
+        + overloading(iterations: int): void
+    }
+    class Fish{
+      + Fish(int animalAge, String animalGender, double size): <<create>>
+      + Fish()
+      - sizeInFeet: double
+      # living: boolean
+      + size(): void
+      - canEat(): void
+      + publicCanEat(): void
+      + Call(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+      + dummyInterfaceMethod(): void
+    }
+    Animal <|-- Fish
+    class Zebra {
+      + Zebra(animalAge: int, animalGender: String, is_wild: boolean): <<create>>
+      + Zebra(): <<create>>
+      # laysEggs: boolean
+      - is_wild: boolean
+      + run(): void
+      + staticRun(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+      + dummyInterfaceMethod(): void
+    }
+    Animal <|-- Zebra
+    class Hippo {
+      + Hippo(animalAge: int, animalGender: String, is_wild: boolean): <<create>>
+      + Hippo(): <<create>>      
+      # laysEggs: boolean  
+      - is_wild: boolean
+      + Call(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+      + dummyInterfaceMethod(): void
+    }
+    Animal <|-- Hippo
+    class Giraffe {
+      + Giraffe(animalAge: int, animalGender: String, is_wild: boolean): <<create>>
+      + Giraffe(): <<create>>
+      # laysEggs: boolean  
+      - is_wild: boolean
+      + Call(): void
+      + overloading(): void
+      + overloading(iterations: int): void
+      + dummyInterfaceMethod(): void
+    }
+    Animal <|-- Giraffe
+    class Secret {
+      + Secret(scanner: Scanner): <<create>>
+      + Secret(): <<create>>
+      ~ staffMember: Staff
+      ~ fish: Fish
+      ~ zebra: Zebra
+      ~ hippo: Hippo
+      ~ giraffe: Giraffe
+      ~ scanner: Scanner
+      # dummy: int
+      - sleep(time: int): void
+      + overloading(): void
+      + overloading(iterations: int): void
+      + screen(scanner: Scanner): void
+    }
+    class tour1 {
+      + tour1(): <<create>>
+      + tour1(dummy_variable: int, dummy_variable2: int): <<create>>
+      # dummy_variable: int
+      - dummy_variable2: int
+      + overloading(): void
+      + overloading(iterations: int): void
+      + tourOne(): void
+    }
+    class tour2 {
+      + tour2(): <<create>>
+      + tour2(dummy_variable: int, dummy_variable2: int): <<create>>
+      # dummy_variable: int
+      - dummy_variable2: int
+      + overloading(): void
+      + overloading(iterations: int): void
+      + tourTwo(): void
+    }
+    class tour3 {
+      + tour3(): <<create>>
+      + tour3(dummy_variable: int, dummy_variable2: int): <<create>>
+      # dummy_variable: int
+      - dummy_variable2: int
+      + overloading(): void
+      + overloading(iterations: int): void
+      + tourThree(): void
+    }
+    class sleep {
+      + sleep(): <<create>>
+      + sleep(dummy_variable: int, dummy_variable2: int): <<create>>
+      # dummy_variable: int
+      - dummy_variable2: int
+      + overloading(): void
+      + overloading(iterations: int): void
+      + sleepTime(time: int): void
+    }
+    class dummyInterface {
+      + dummyInterfaceMethod(): void
+
+    }
+    dummyInterface <|.. Human : implements
+    dummyInterface <|.. Fish : implements
+    dummyInterface <|.. Zebra : implements
+    dummyInterface <|.. Giraffe : implements
+    dummyInterface <|.. Hippo : implements
+    Main <|-- tour1: imports
+    Main <|-- tour2: imports
+    Main <|-- tour3: imports
+    Main <|-- sleep: imports
+    Main <.. Game: starts
+    Game <.. Shop: a part of
+    Game <.. Customer: a part of
+    Game <.. Secret: a part of
