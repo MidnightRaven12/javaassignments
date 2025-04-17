@@ -1,0 +1,12 @@
+Hello! Welcome to this simple Whack-A-Mole game. 
+It turns out that after trying to make this project, I realized that this could be a good Aim Trainer. So, yeah:
+
+Aim to your hearts content, 
+
+Whack Some Moles,
+
+Or just enjoy the flickering lights at 3AM while procrastinating for a final.
+
+Thanks,
+
+Yours Truly.

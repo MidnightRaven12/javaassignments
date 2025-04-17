@@ -1,0 +1,7 @@
+Goal, uh yeah, get as many points as you can.
+
+There's no limit, other than you being bored, and then manipulating the code yourself.
+
+Don't worry, I've provided many different ways to change it. 
+
+It'll be easy to look at a few variables in order to learn Java (I hope.)

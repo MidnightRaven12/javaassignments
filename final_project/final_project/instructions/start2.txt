@@ -1,0 +1,8 @@
+To play this game, there are four difficulties, each getting slightly harder as you go along.
+
+The default difficulty is medium.
+
+There are also powerups, and also Super Moles which are worth five points. 
+
+I hope that the game will be easily explainable, it'll be easier just to play it, and see how the game operates.
+
