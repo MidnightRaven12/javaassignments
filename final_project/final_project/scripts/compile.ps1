@@ -2,7 +2,7 @@ $JAVAFX_PATH = "C:\Users\Owner\OneDrive\Desktop\temporary\javafx-sdk-24"
 $SRC_DIR = "src"
 $OUTPUT_DIR = "bin"
 $MAIN_CLASS = "WhackAMoleGame"
-$JAR_FILE = "final_project2.jar"  
+$JAR_FILE = "final_project.jar"  
 $JAR_OUTPUT_DIR = "C:\Users\Owner\OneDrive\Desktop\Homework\oakland\java\assignment4\final_project\final_project"
 Set-Location ..
 

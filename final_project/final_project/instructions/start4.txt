@@ -1,7 +1,10 @@
-There are many ways to use this software, such as tinkering with it in order to advance your own knowledge.
+There are many ways to use this software, 
+such as tinkering with it in order to advance your own knowledge.
 
-Additionally, there are some technical things, such as the usage of a GUI, as well as some basic game logic and many more.
+Additionally, there are some technical things, such as the usage of a GUI,
+ as well as some basic game logic and many more.
 
-Lastly, the actual intended usage is either an Aim trainer disguised as a Whack-A-Mole game.
+Lastly, the actual intended usage is an Aim trainer disguised as a Whack-A-Mole game.
 
-Again, use this however you want. There's instructions on how to build the Project in the notes folder, so tinker to your heart's content. 
+Again, use this however you want. 
+There's instructions on how to build the Project in the notes folder, so tinker to your heart's content. 
