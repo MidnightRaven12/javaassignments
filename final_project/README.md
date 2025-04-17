@@ -1,5 +1,5 @@
 # Whack A Mole
-## By: Brandon C.
+## By: MidnightRaven12
 
 # Basic Facts about the Project
 
