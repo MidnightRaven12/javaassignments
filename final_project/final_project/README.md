@@ -26,7 +26,8 @@ So, some more notes on how to compile this:
 
 1. `git clone`, you know what the drill is, hopefully.
 2. Use `scripts/compile.ps1`, or `scripts/compile.sh` in order to compile and run the game locally. 
-3. Either play the game, or change it in your own way. 
+3. You may also change the files. 
+4. Either play the game, or change it in your own way. 
    
 # Credits:
 
