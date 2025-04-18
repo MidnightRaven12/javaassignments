@@ -295,7 +295,8 @@ public class WhackAMoleGame extends Application {
             while (gameRunning) {
                 try {
                     Random rand = new Random(); 
-                    int sleepTime = rand.nextInt(upperBound - lowerBound) + lowerBound;                     Thread.sleep(sleepTime); // Wait for the specified time
+                    int sleepTime = rand.nextInt(upperBound - lowerBound) + lowerBound;      
+                   Thread.sleep(sleepTime); // Wait for the specified time
                     // Update the UI with mole appearance
                     Platform.runLater(this::showRandomMole); 
 
