@@ -2,7 +2,7 @@
 $JAVAFX_PATH = "C:\Users\Owner\OneDrive\Desktop\temporary\javafx-sdk-24" # Change here. 
 $SRC_DIR = "src"
 $OUTPUT_DIR = "bin"
-$MAIN_CLASS = "WhackAMoleGame"
+$MAIN_CLASS = "WhackAMoleGame" 
 
 Set-Location .. 
 

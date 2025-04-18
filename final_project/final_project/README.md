@@ -1,6 +1,5 @@
 # Whack-A-Mole
 
-
 It's a real tragedy. Many young kids are not getting the adequate aim training that they need to survive in today's ever changing lifestyle. Before, it was just video games. Nowadays, it's also building, as well as being able to play multiple games at once, such as Minecraft, or Fortnite. It's a real shame that many kids will fall behind their peers. 
 
 Gaming is an essential skill. And we need to do something about it.

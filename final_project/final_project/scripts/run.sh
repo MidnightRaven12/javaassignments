@@ -6,7 +6,6 @@ SRC_DIR="src"
 OUTPUT_DIR="bin"
 MAIN_CLASS="WhackAMoleGame"
 
-# Navigate one directory up (equivalent to 'Set-Location ..')
 cd ..
 
 # Create output directory if it doesn't exist
