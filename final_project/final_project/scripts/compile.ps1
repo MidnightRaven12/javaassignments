@@ -1,9 +1,9 @@
-$JAVAFX_PATH = "C:\Users\Owner\OneDrive\Desktop\temporary\javafx-sdk-24" 
-$SRC_DIR = "src"
+$JAVAFX_PATH = "C:\Users\Owner\OneDrive\Desktop\temporary\javafx-sdk-24" # Change this
+$SRC_DIR = "src" 
 $OUTPUT_DIR = "bin"
 $MAIN_CLASS = "WhackAMoleGame"
-$JAR_FILE = "final_project.jar"  
-$JAR_OUTPUT_DIR = "C:\Users\Owner\OneDrive\Desktop\Homework\oakland\java\assignment4\final_project\final_project"
+$JAR_FILE = "final_project.jar" # Change this name if you want to. 
+$JAR_OUTPUT_DIR = "C:\Users\Owner\OneDrive\Desktop\Homework\oakland\java\assignment4\final_project\final_project" # Change to where you want to output?
 Set-Location ..
 
 if (-not (Test-Path -Path $OUTPUT_DIR)) {
